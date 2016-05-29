@@ -3,7 +3,10 @@ Beginning a public repository for all the requisities for implementing baseline 
 
 Henceforth, all meandering ML Implementations will be pushed to this Repository.
 
-### For now, this repository will act as a collection of various Neural Network Implementations through multiple platforms. These include:
+
+
+
+### For the moment, this repository will act as a collection of various Neural Network Implementations through multiple platforms. These include:
     Python Packages: Scikit Learn, PyBrain and bits of Theano
     Java libraries: DeepLearning4j , Neuroph, JavaNet
     C Libraries: Torch, FNN
