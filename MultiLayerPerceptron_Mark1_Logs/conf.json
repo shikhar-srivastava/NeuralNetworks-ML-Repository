@@ -1,0 +1,135 @@
+{
+  "backprop" : false,
+  "backpropType" : "Standard",
+  "confs" : [ {
+    "extraArgs" : [ 0 ],
+    "l1ByParam" : {
+      "bB" : 0.0,
+      "b" : 0.0,
+      "W" : 0.1
+    },
+    "l2ByParam" : {
+      "bB" : 0.0,
+      "b" : 0.0,
+      "W" : 2.0E-4
+    },
+    "layer" : {
+      "RBM" : {
+        "activationFunction" : "relu",
+        "adamMeanDecay" : "NaN",
+        "adamVarDecay" : "NaN",
+        "biasInit" : 0.0,
+        "biasL1" : 0.0,
+        "biasL2" : 0.0,
+        "biasLearningRate" : 9.999999974752427E-7,
+        "customLossFunction" : null,
+        "dist" : null,
+        "dropOut" : 0.5,
+        "gradientNormalization" : "None",
+        "gradientNormalizationThreshold" : 1.0,
+        "hiddenUnit" : "RECTIFIED",
+        "k" : 1,
+        "l1" : 0.1,
+        "l2" : 2.0E-4,
+        "layerName" : null,
+        "learningRate" : 9.999999974752427E-7,
+        "learningRateSchedule" : null,
+        "lossFunction" : "RMSE_XENT",
+        "momentum" : "NaN",
+        "momentumSchedule" : null,
+        "nin" : 4,
+        "nout" : 3,
+        "rho" : "NaN",
+        "rmsDecay" : "NaN",
+        "sparsity" : 0.0,
+        "updater" : "ADAGRAD",
+        "visibleUnit" : "GAUSSIAN",
+        "weightInit" : "XAVIER"
+      }
+    },
+    "leakyreluAlpha" : 0.0,
+    "learningRateByParam" : {
+      "bB" : 9.999999974752427E-7,
+      "b" : 9.999999974752427E-7,
+      "W" : 9.999999974752427E-7
+    },
+    "learningRatePolicy" : "None",
+    "lrPolicyDecayRate" : "NaN",
+    "lrPolicyPower" : "NaN",
+    "lrPolicySteps" : "NaN",
+    "maxNumLineSearchIterations" : 5,
+    "miniBatch" : true,
+    "minimize" : true,
+    "numIterations" : 5,
+    "optimizationAlgo" : "CONJUGATE_GRADIENT",
+    "seed" : 123,
+    "stepFunction" : null,
+    "useDropConnect" : true,
+    "useRegularization" : true,
+    "variables" : [ "W", "b", "bB" ]
+  }, {
+    "extraArgs" : [ ],
+    "l1ByParam" : {
+      "b" : 0.0,
+      "W" : 0.1
+    },
+    "l2ByParam" : {
+      "b" : 0.0,
+      "W" : 2.0E-4
+    },
+    "layer" : {
+      "output" : {
+        "activationFunction" : "softmax",
+        "adamMeanDecay" : "NaN",
+        "adamVarDecay" : "NaN",
+        "biasInit" : 0.0,
+        "biasL1" : 0.0,
+        "biasL2" : 0.0,
+        "biasLearningRate" : 9.999999974752427E-7,
+        "customLossFunction" : null,
+        "dist" : null,
+        "dropOut" : 0.0,
+        "gradientNormalization" : "None",
+        "gradientNormalizationThreshold" : 1.0,
+        "l1" : 0.1,
+        "l2" : 2.0E-4,
+        "layerName" : null,
+        "learningRate" : 9.999999974752427E-7,
+        "learningRateSchedule" : null,
+        "lossFunction" : "MCXENT",
+        "momentum" : "NaN",
+        "momentumSchedule" : null,
+        "nin" : 3,
+        "nout" : 3,
+        "rho" : "NaN",
+        "rmsDecay" : "NaN",
+        "updater" : "SGD",
+        "weightInit" : "XAVIER"
+      }
+    },
+    "leakyreluAlpha" : 0.0,
+    "learningRateByParam" : {
+      "b" : 9.999999974752427E-7,
+      "W" : 9.999999974752427E-7
+    },
+    "learningRatePolicy" : "None",
+    "lrPolicyDecayRate" : "NaN",
+    "lrPolicyPower" : "NaN",
+    "lrPolicySteps" : "NaN",
+    "maxNumLineSearchIterations" : 5,
+    "miniBatch" : true,
+    "minimize" : true,
+    "numIterations" : 5,
+    "optimizationAlgo" : "CONJUGATE_GRADIENT",
+    "seed" : 123,
+    "stepFunction" : null,
+    "useDropConnect" : true,
+    "useRegularization" : true,
+    "variables" : [ "W", "b" ]
+  } ],
+  "inputPreProcessors" : { },
+  "pretrain" : true,
+  "redistributeParams" : false,
+  "tbpttBackLength" : 20,
+  "tbpttFwdLength" : 20
+}
