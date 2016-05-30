@@ -35,6 +35,7 @@ Further, as far as I could find, Java_ML lacks a native Plotting Library/module 
 
 #### Regarding Files Updated:
     1. Trained and tested KNearestNeightbours,RandomForest,Linear SVM models with Sample RGB DataSet.
-        (*Source .java files can be found under Java_ML*)
+    
     2. Trained models can be tested simply by inserting data in a file and executing the trained model class.
     
+ *Source files .java for Java ML implementations can be found under Java_ML*
