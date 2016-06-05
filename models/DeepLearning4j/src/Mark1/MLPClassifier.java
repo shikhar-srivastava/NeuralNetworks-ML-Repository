@@ -1,17 +1,12 @@
 package Mark1;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collections;
-
 import org.apache.commons.io.FileUtils;
 import org.canova.api.records.reader.RecordReader;
 import org.canova.api.records.reader.impl.CSVRecordReader;
 import org.canova.api.split.FileSplit;
 import org.deeplearning4j.datasets.canova.RecordReaderDataSetIterator;
+import org.deeplearning4j.datasets.iterator.DataSetIterator;
 import org.deeplearning4j.eval.Evaluation;
-import org.deeplearning4j.examples.feedforward.classification.PlotUtil;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -23,33 +18,32 @@ import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.api.IterationListener;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.SplitTestAndTrain;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
-import org.nd4j.linalg.dataset.DataSet;
-import org.deeplearning4j.datasets.iterator.DataSetIterator;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collections;
 
 /**
- * "Linear" Data Classification Example
- *
- * Based on the data from Jason Baldridge:
- * https://github.com/jasonbaldridge/try-tf/tree/master/simdata
- *
- * @author Josh Patterson
- * @author Alex Black (added plots)
+ * @ author- Shikhar Srivastava
+ * @ credit due to : Relevant Authors of DeepLearning4J Library
  *
  */
 public class MLPClassifier {
 
 
     public static void main(String[] args) throws Exception {
-        int type=2;
+        String type="3_MODEL_Change_1";
         int seed = 123;
         double learningRate = 0.005;
         int batchSize = 290;
-        int nEpochs = 9001;
+        int nEpochs = 9501;
         int splitTrainNum = (int) (batchSize * .8);
-        int iterations= 5;
+        int iterations= 1;
         int numInputs = 3;
         int numOutputs = 4;
         int numHiddenNodes = 5;
@@ -77,17 +71,29 @@ public class MLPClassifier {
 
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
             .seed(seed)
-            .iterations(1)
-            .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+            .iterations(iterations)
+            .optimizationAlgo(OptimizationAlgorithm.LINE_GRADIENT_DESCENT)
             .learningRate(learningRate)
+           // .l1(1e-1).regularization(true).l2(2e-4)
             .updater(Updater.NESTEROVS)
-            .list(2)
-            .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
+            .list()
+            .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes*2)
+                .name("FirstHiddenLayer")
                 .weightInit(WeightInit.XAVIER)
                 .activation("relu")
+                .momentum(0.9)
                 .build())
-            .layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
+            .layer(1,new DenseLayer.Builder()
+                .name("SecondHiddenLayer")
+                .nIn(numHiddenNodes*2).nOut(numHiddenNodes)
                 .weightInit(WeightInit.XAVIER)
+                .activation("relu")
+                .momentum(0.9)
+                .build())
+            .layer(2, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
+                .name("OutputLayer")
+                .weightInit(WeightInit.XAVIER)
+                .momentum(0.9)
                 .activation("softmax").weightInit(WeightInit.XAVIER)
                 .nIn(numHiddenNodes).nOut(numOutputs).build())
             .pretrain(false).backprop(true).build();
@@ -95,7 +101,7 @@ public class MLPClassifier {
 
         MultiLayerNetwork model = new MultiLayerNetwork(conf);
         model.init();
-        model.setListeners(Collections.singletonList((IterationListener) new ScoreIterationListener(500)));
+        model.setListeners(Collections.singletonList((IterationListener) new ScoreIterationListener(1)));
         for ( int n = 0; n < nEpochs; n++) {
             model.fit( train);
         }
