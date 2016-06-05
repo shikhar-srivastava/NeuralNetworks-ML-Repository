@@ -25,8 +25,8 @@ Also, Note: Maven is heavily utilized here. So for someone new to it, it'll take
     3. .docx files to log the F1-Scores for each model
 
 ## Java ML Library
-One of the better ML Libraries offered by the Java Community, offers a variety of Model Implementations, though the documentation on it is rather poor. (There is only one tutorial PDF to get you started)
 
+One of the better ML Libraries offered by the Java Community, offers a variety of Model Implementations, though the documentation on it is rather poor. (There is only one tutorial PDF to get you started)
 
 As far as the implementation goes, the procedure is rather straightforward, and the models require little or no parameter tuning. 
 The library is weak in terms of the variety and efficiency of implementations of models offered. 
@@ -34,8 +34,13 @@ The library is weak in terms of the variety and efficiency of implementations of
 Further, as far as I could find, Java_ML lacks a native Plotting Library/module for ROC curves/graphs and uses Weka Library externally( of which some modules have to be downloaded seperately).
 
 #### Regarding Files Updated:
-    1. Trained and tested KNearestNeightbours,RandomForest,Linear SVM models with Sample RGB DataSet.
+    1. Trained KNearestNeightbours model with varying 'K' and attempted to optimize its value through test-set performance instead of Validation sets 
     
-    2. Trained models can be tested simply by inserting data in a file and executing the trained model class.
+    2. RandomForest,Linear SVM models have also been added. (Trained with Sample RGB DataSet)
     
- *Source files .java for Java ML implementations can be found under Java_ML*
+    3. A weird issue with Serializability of the Naive Bayes model, but besides that, its performing quite well.
+    
+    4. Added Serializability to the rest of the ML models. The models can now be saved, their structures and hyperparameters logged and loaded through the _tester source for re-use.
+    
+    5. Some DataProcessing source code has been added, that uses java.ml.core libaries, hence updated here.
+    
