@@ -10,7 +10,9 @@ Henceforth, all meandering ML Implementations will be pushed to this Repository.
 
 #### For the moment, this repository will act as a collection of various Neural Network Implementations through multiple platforms. These include:
     Python Packages: Scikit Learn, PyBrain and bits of Theano
+    
     Java libraries: DeepLearning4j , Neuroph, JavaNet
+    
     C Libraries: Torch, FNN
     
 ## DeepLearning4J 
@@ -21,7 +23,9 @@ Also, Note: Maven is heavily utilized here. So for someone new to it, it'll take
 
 #### Regarding Files Updated: 
     1. Several Multi-Layer Perceptron Implementations for Sample datasets. 
+    
     2. Logs and paramter/hyperparameters saved in bin and jsons for future reference.
+    
     3. .docx files to log the F1-Scores for each model
 
 ## Java ML Library
