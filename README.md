@@ -1,5 +1,8 @@
 # MLNeuralNetworksRepository
-Beginning a public repository for all the requisities for implementing baseline Neural Network &amp; other ML Implementations
+Beginning a public repository for various Machine Learning Implementations, focusing on Neural Networks & eventually moving towards Deep Nets, Autoencoders & Convolutional Nets. 
+
+
+
 
 Henceforth, all meandering ML Implementations will be pushed to this Repository.
 
@@ -9,36 +12,50 @@ Henceforth, all meandering ML Implementations will be pushed to this Repository.
 
 
 #### For the moment, this repository will act as a collection of various Neural Network Implementations through multiple platforms. These include:
-    Python Packages: Scikit Learn, PyBrain and bits of Theano
+    Python Packages: Scikit Learn, PyBrain and lots of Theano
     
-    Java libraries: DeepLearning4j , Neuroph, JavaNet
+    Java libraries: DeepLearning4j , Neuroph, JavaML, Weka
     
     C Libraries: Torch, FNN
     
-## DeepLearning4J 
+    
+  
+    
+    
+## DeepLearning4J
+
 This package is a great way to get started with multi-layer nets and allows configuration of a variety of hyperparameters easily and robustly. DeepLearning4j uses Canova for vectorization of Data which is a rather convenient implementation, similar to *Python statistical libraries* (very useful). 
 
 Finally, and most importantly, this library sufficiently allows for ConvNet and deep-learning implementations (as the name suggests) from the get go with GPU and CUDA support.
 Also, Note: Maven is heavily utilized here. So for someone new to it, it'll take some getting used to.
 
-#### Regarding Files Updated: 
-    1. Several Multi-Layer Perceptron Implementations for Sample datasets. 
+#### Regarding Files Updated:
+
+    1. Multi-Layer Perceptron Implementations for MultiClass Classification Problems.
     
-    2. Logs and paramter/hyperparameters saved in bin and jsons for future reference.
+    2. Several iterations of hyperparametric changes to the Network to understand their pros and cons, from L1 & L2 Regularization, Drop-offs (which is rather convenient in Dl4j) to varying weight-initializers, Error Updaters, and large variations in network structures, needless to say. 
     
-    3. .docx files to log the F1-Scores for each model
+    3. Models have all been serialized and stored along with respective Logs and paramter/hyperparameters saved in bin and jsons for future reference.
+
+Deeplearning4j also allows integration with Hadoop, Spark and porting pre-trained models from Caffe; Interesting. Hope to try it out on CPU Clusters soon.
 
 ## Java ML Library
 
 One of the better ML Libraries offered by the Java Community, offers a variety of Model Implementations, though the documentation on it is rather poor. (There is only one tutorial PDF to get you started)
 
-As far as the implementation goes, the procedure is rather straightforward, and the models require little or no parameter tuning. 
-The library is weak in terms of the variety and efficiency of implementations of models offered. 
 
-Further, as far as I could find, Java_ML lacks a native Plotting Library/module for ROC curves/graphs and uses Weka Library externally( of which some modules have to be downloaded seperately).
+As far as the implementation goes, the procedure is rather straightforward, and the models require little or no parameter tuning. 
+The library is weak in terms of the variety and efficiency of implementations of models offered and it is clear from the offset, the library wasn't designed for scaling. 
+
+Further, as far as I could find, Java_ML lacks a native Plotting module for ROC curves and uses Weka Library externally( of which some modules have to be downloaded seperately).
+
+
+Another major drawback of the library, which is precisely where Weka shines, is its inconvenience of implementation; In much of the routinely needed functions for model optimization and comparison, JavaML provides no support, leave alone for GPUs or Cluster computing; It simply isn't meant for scaling, or even for routine research (its lacking too many things to be used for it). For example, K-Fold validation on Java ML is verbose and RBF SVMs non-existant; Code for ROCs and AUCs have to be written from scratch, and that is for perhaps the de-facto reference for model evaluation. 
+
+All in all, Java ML is a decent library, perhaps best suited for basic implementations without a need for scaling to distributed computing/multiple GPUs and for suitors to a Java library offering a range of implementable models at a high level of abstraction.
 
 #### Regarding Files Updated:
-    1. Trained KNearestNeightbours model with varying 'K' and attempted to optimize its value through test-set performance instead of Validation sets 
+    1. Trained KNearestNeightbours model with varying 'K' and attempted to optimize its value through test-set performance instead of Validation sets. (No K-Fold Validation available **Update**: Wrote KFoldValidation functions from scratch and implemented the same for 70:30 train set split) 
     
     2. RandomForest,Linear SVM models have also been added. (Trained with Sample RGB DataSet)
     
@@ -48,3 +65,19 @@ Further, as far as I could find, Java_ML lacks a native Plotting Library/module 
     
     5. Some DataProcessing source code has been added, that uses java.ml.core libaries, hence updated here.
     
+## Weka 
+
+Weka is offered both as a software application for Researchers, and as a Java module to other Java libraries. Weka provides optimized models with easy, highly abstracted implementations (similar to JavaML) and is well-rounded with functions for a range of methodologies. In contrast to other libraries, Weka has a rather comprehensive GUI support in various areas; It allows "Auto-building" in MultiLayer Perceptrons, which is essentially code for "We'll display a sample model, you can modify it by clicking and changing its structure, parameters and hyper-parameters as you like". Convenient. 
+
+
+#### Weka implementations: 
+
+        1. KnearestNeighbours model with 10-fold validation on Medical dataset.
+        
+        2. Random Forest, LibSVM's implementation with Weka along with ROC curves for all models.
+        
+        3. MultiLayer perceptron network with varying structures.
+        
+        4. Wrote a script to convert .csv files to .arff files.
+
+        
