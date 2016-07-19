@@ -35,9 +35,11 @@ Also, Note: Maven is heavily utilized here. So for someone new to it, it'll take
 
         1. Multi-Layer Perceptron Implementations for MultiClass Classification Problems.
     
-        2. Several iterations of hyperparametric changes to the Network to understand their pros and cons, from L1 & L2 Regularization, Drop-offs (which is rather convenient in Dl4j) to varying weight-initializers, Error Updaters, and large variations in network structures, needless to say. 
+        2. Several iterations of hyperparametric changes to the Network to understand their pros and cons;
+           From L1 & L2 Regularization, Drop-offs (which is rather convenient in Dl4j) to varying weight-initializers, Error Updaters, and large variations in network structures, needless to say. 
     
-        3. Models have all been serialized and stored along with respective Logs and paramter/hyperparameters saved in bin and jsons for future reference.
+        3. Models have all been serialized and stored along with respective Logs and paramter/hyperparameters saved in bin and jsons
+            for future reference.
 
 Deeplearning4j also allows integration with Hadoop, Spark and porting pre-trained models from Caffe; Interesting. Hope to try it out on CPU Clusters soon.
 
@@ -52,13 +54,14 @@ The library is weak in terms of the variety and efficiency of implementations of
 Further, as far as I could find, Java_ML lacks a native Plotting module for ROC curves and uses Weka Library externally( of which some modules have to be downloaded seperately).
 
 
-Another major drawback of the library, which is precisely where Weka shines, is its inconvenience of implementation; In much of the routinely needed functions for model optimization and comparison, JavaML provides no support, leave alone for GPUs or Cluster computing; It simply isn't meant for scaling, or even for routine research (its lacking too many things to be used for it). For example, K-Fold validation on Java ML is verbose and RBF SVMs non-existant; Code for ROCs and AUCs have to be written from scratch, and that is for perhaps the de-facto reference for model evaluation. 
+*Another major drawback of the library, which is precisely where Weka shines, is its inconvenience of implementation; In much of the routinely needed functions for model optimization and comparison, JavaML provides no support, leave alone for GPUs or Cluster computing; It simply isn't meant for scaling, or even for routine research (its lacking too many things to be used for it). For example, K-Fold validation on Java ML is verbose and RBF SVMs non-existant; Code for ROCs and AUCs have to be written from scratch, and that is for perhaps the de-facto reference for model evaluation.*
 
 All in all, Java ML is a decent library, perhaps best suited for basic implementations without a need for scaling to distributed computing/multiple GPUs and for suitors to a Java library offering a range of implementable models at a high level of abstraction.
 
 #### Regarding Files Updated:
 
-        1. Trained KNearestNeightbours model with varying 'K' and attempted to optimize its value through test-set performance instead of Validation sets. (No K-Fold Validation available **Update**: Wrote KFoldValidation functions from scratch and implemented the same for 70:30 train set split) 
+        1. Trained KNearestNeightbours model with varying 'K' and attempted to optimize its value through test-set performance instead of Validation sets. 
+            (No K-Fold Validation available **Update**: Wrote KFoldValidation functions from scratch and implemented the same for 70:30 train set split) 
     
         2. RandomForest,Linear SVM models have also been added. (Trained with Sample RGB DataSet)
     
