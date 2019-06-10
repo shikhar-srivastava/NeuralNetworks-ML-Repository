@@ -1,6 +1,6 @@
 # **Machine Learning | Neural Networks Repository**
 
-`[__Update 2019: This repository is outdated. Python & PyTorch Model repo to be added__]`
+`[__Update 02/19__: This repository is outdated. Python & PyTorch Model repo to be added]`
 
 Beginning a public repository for various Machine Learning Implementations, focusing on Neural Networks & eventually moving towards Deep Nets, Autoencoders & Convolutional Nets. 
 
