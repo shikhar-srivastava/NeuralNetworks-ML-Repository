@@ -1,18 +1,4 @@
-# **Machine Learning | Neural Networks Repository**
-
-`[__Update 02/19__: This repository is outdated. Python & PyTorch Model repo to be added]`
-
-Beginning a public repository for various Machine Learning Implementations, focusing on Neural Networks & eventually moving towards Deep Nets, Autoencoders & Convolutional Nets. 
-
-
-
-
-Henceforth, all meandering ML Implementations will be pushed to this Repository.
-
-
-
-
-
+`[__Update 01/22__: This is an old repository. These collect my notes and implementations of Machine Learning models back in 2015, as I explored the early landscape of libraries across Java and Python. Java was infact the overwhelmingly preferred language for Machine Learning back then. With Theano, PyBrain and Lasange gaining momentum. ]`
 
 #### For the moment, this repository will act as a collection of various Machine Learning Models implemented through multiple platforms. These include:
     Python Packages: Scikit(Sk) Learn, PyBrain and Theano
