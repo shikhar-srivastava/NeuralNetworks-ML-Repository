@@ -1,4 +1,4 @@
-`[__Update 01/22__: This is an old repository. These collect my notes and implementations of Machine Learning models back in 2015, as I explored the early landscape of libraries across Java and Python. Java was infact the overwhelmingly preferred language for Machine Learning back then. With Theano, PyBrain and Lasagne gaining momentum. ]`
+`[__Update 01/22__: This is an old repository. These collect my notes and implementations of Machine Learning models back in 2015, as I explored the early landscape of libraries across Python and Java.]`
 
 #### For the moment, this repository will act as a collection of various Machine Learning Models implemented through multiple platforms. These include:
     Python Packages: Scikit(Sk) Learn, PyBrain and Theano
@@ -9,11 +9,9 @@
     
     Lua Library: Torch
     
-# **Java Libraries:** 
-    
 Java clearly doesn't offer the most popular ecosystem for Machine Learning implementations. It has lagged behind R and Python, and even Lua (courtesy of Torch) in both depth and breadth of the models offered. The following are the set of Libraries offered by the Java ecosystem, that make a convincing argument that Java might finally be catching on, and offers advantages of its own. 
     
-## *DeepLearning4J*
+### *DeepLearning4J*
 
 This package is a great way to get started with multi-layer nets and allows configuration of a variety of hyperparameters easily and robustly. DeepLearning4j uses Canova for vectorization of Data which is a rather convenient implementation, similar to the *Python statistical libraries* (very useful). 
 
@@ -32,7 +30,7 @@ Also, Note: Maven is heavily utilized here. So for someone new to it, it'll take
 
 Deeplearning4j also allows integration with Hadoop, Spark and porting pre-trained models from Caffe; Interesting. Hope to try it out on CPU Clusters soon.
 
-## *Java ML Library*
+### *JavaML*
 
 One of the better ML Libraries offered by the Java Community, offers a variety of Model Implementations, though the documentation on it is rather poor. (There is only one tutorial PDF to get you started)
 
@@ -60,7 +58,7 @@ All in all, Java ML is a decent library, perhaps best suited for basic implement
     
         5. Some DataProcessing source code has been added, that uses java.ml.core libaries, hence updated here.
     
-## *Weka* 
+### *Weka* 
 
 Weka is offered both as a software application for Researchers, and as a Java module to other Java libraries. Weka provides optimized models with easy, highly abstracted implementations (similar to JavaML) and is well-rounded with functions for a range of methodologies. In contrast to other libraries, Weka has a rather comprehensive GUI support in various areas; It allows "Auto-building" in MultiLayer Perceptrons, which is essentially code for "We'll display a sample model, you can modify it by clicking and changing its structure, parameters and hyper-parameters as you like". Convenient. 
 
@@ -76,7 +74,7 @@ Weka is offered both as a software application for Researchers, and as a Java mo
         4. Wrote a script to convert .csv files to .arff files.
 
         
-# **Python Libraries**
+### **Python Libraries**
 
 Python has powerful libraries for Machine Learning & Neural Networks in Scikit-Learn, Theano & PyBrain and the various others built on these (Lasagne is a good example). Python uses the powerful Numpy library to its advantage with optimized Matrix multiplications, and is one of the most efficient, scalable platforms for ML implementations. 
 Further, it has perhaps the most intuitive, easy-to-pickup implementations.
